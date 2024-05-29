@@ -10,7 +10,7 @@ const port = 8000;
 
 mongoose.connect('mongodb+srv://codecrafters:Devteam2024@data.ma9zn4r.mongodb.net/alldata?retryWrites=true&w=majority&appName=data')
 .then(res => console.log("mongodb connected"))
-.catch(err => console.console.log('Error connecting to MongoDB: ' + err));
+.catch(err => console.console.log('Error connecting to MongoDB'))
 
 
 app.post('/add', (req, res) => {
