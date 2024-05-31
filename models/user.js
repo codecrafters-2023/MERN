@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    name: {
+    title: {
         type: String,
         required: true,
     },
-    email: {
+    description: {
         type: String,
         required: true,
     },

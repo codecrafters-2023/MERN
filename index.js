@@ -14,9 +14,9 @@ mongoose.connect('mongodb+srv://codecrafters:Devteam2024@data.ma9zn4r.mongodb.ne
 
 
 app.post('/add', (req, res) => {
-    const {name, email} = req.body
+    const {title, description} = req.body
     Test.create({
-        name, email
+        title, description
     })
     .then((result) => res.json(result))
     .catch((err) => res.json(err))
