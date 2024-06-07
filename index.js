@@ -2,13 +2,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require('cors');
 const Test = require('./models/user')
+require('dotenv').config()
 
 const app = express();
 app.use(cors());
 app.use(express.json())
-const port = 8000;
+const port = process.env.PORT || 8000;
 
-mongoose.connect('mongodb+srv://codecrafters:Devteam2024@data.ma9zn4r.mongodb.net/alldata?retryWrites=true&w=majority&appName=data')
+mongoose.connect(process.env.MONGODB_URL)
     .then(res => console.log("mongodb connected"))
     .catch(err => console.console.log('Error connecting to MongoDB'))
 
@@ -43,7 +44,7 @@ app.delete('/delete/:id', async (req, res) => {
         .catch((err) => res.json(err))
 })
 
-app.put('/update/:id',async (req, res) => {
+app.put('/update/:id', async (req, res) => {
     const id = req.params.id
     console.log(id);
     const { title, description } = req.body;
